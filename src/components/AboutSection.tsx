@@ -108,18 +108,37 @@ const AboutSection: React.FC = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {stats.map((stat, index) => (
-            <motion.div key={index} variants={cardVariants}>
-              <Card className="p-6 text-center bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-300">
+            <motion.div 
+              key={index} 
+              variants={cardVariants}
+              whileHover={{ 
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+            >
+              <Card className="p-6 text-center bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-300 group">
                 <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: index * 0.1, duration: 0.5, type: "spring", stiffness: 100 }}
+                  initial={{ scale: 0, rotateY: 180 }}
+                  whileInView={{ scale: 1, rotateY: 0 }}
+                  transition={{ 
+                    delay: index * 0.2, 
+                    duration: 0.6, 
+                    type: "spring", 
+                    stiffness: 100 
+                  }}
                   viewport={{ once: true }}
-                  className="text-3xl md:text-4xl font-bold text-primary mb-2"
+                  className="text-3xl md:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-300"
                 >
                   {stat.number}
                 </motion.div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: index * 0.2 + 0.3 }}
+                  className="text-muted-foreground font-medium"
+                >
+                  {stat.label}
+                </motion.div>
               </Card>
             </motion.div>
           ))}

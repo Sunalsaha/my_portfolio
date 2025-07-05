@@ -116,21 +116,27 @@ const ContactSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     viewport={{ once: true }}
+                    whileHover={{ x: 5, transition: { duration: 0.2 } }}
                   >
-                    <Card className="p-4 bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-300">
+                    <Card className="p-4 bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-300 group cursor-pointer">
                       <div className="flex items-center space-x-4">
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <motion.div 
+                          className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+                          whileHover={{ scale: 1.1, rotate: 10 }}
+                          transition={{ duration: 0.3 }}
+                        >
                           <Icon size={20} className="text-primary" />
-                        </div>
+                        </motion.div>
                         <div>
                           <p className="text-sm text-muted-foreground">{info.label}</p>
                           {info.link ? (
-                            <a
+                            <motion.a
                               href={info.link}
                               className="text-foreground hover:text-primary transition-colors font-medium"
+                              whileHover={{ scale: 1.02 }}
                             >
                               {info.value}
-                            </a>
+                            </motion.a>
                           ) : (
                             <p className="text-foreground font-medium">{info.value}</p>
                           )}
@@ -153,76 +159,134 @@ const ContactSection: React.FC = () => {
             <Card className="p-8 bg-glass/30 backdrop-blur-sm border-glass-border">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
+                  <motion.div 
+                    className="space-y-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1, duration: 0.5 }}
+                    viewport={{ once: true }}
+                  >
                     <Label htmlFor="name" className="text-foreground">Name</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-foreground">Subject</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground">Message</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={6}
-                    className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 resize-none"
-                    placeholder="Tell me about your project or just say hello!"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300"
-                >
-                  {isSubmitting ? (
                     <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      className="w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"
+                      whileFocus={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 focus:shadow-glow"
+                        placeholder="Your name"
+                      />
+                    </motion.div>
+                  </motion.div>
+                  <motion.div 
+                    className="space-y-2"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    viewport={{ once: true }}
+                  >
+                    <Label htmlFor="email" className="text-foreground">Email</Label>
+                    <motion.div
+                      whileFocus={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 focus:shadow-glow"
+                        placeholder="your.email@example.com"
+                      />
+                    </motion.div>
+                  </motion.div>
+                </div>
+
+                <motion.div 
+                  className="space-y-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <Label htmlFor="subject" className="text-foreground">Subject</Label>
+                  <motion.div
+                    whileFocus={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Input
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 focus:shadow-glow"
+                      placeholder="What's this about?"
                     />
-                  ) : (
-                    <Send size={16} className="mr-2" />
-                  )}
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </Button>
+                  </motion.div>
+                </motion.div>
+
+                <motion.div 
+                  className="space-y-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <Label htmlFor="message" className="text-foreground">Message</Label>
+                  <motion.div
+                    whileFocus={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      rows={6}
+                      className="bg-input/50 border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 resize-none focus:shadow-glow"
+                      placeholder="Tell me about your project or just say hello!"
+                    />
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300 group"
+                  >
+                    {isSubmitting ? (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-4 h-4 border-2 border-white border-t-transparent rounded-full mr-2"
+                      />
+                    ) : (
+                      <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                      >
+                        <Send size={16} className="mr-2" />
+                      </motion.div>
+                    )}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </Button>
+                </motion.div>
               </form>
             </Card>
           </motion.div>

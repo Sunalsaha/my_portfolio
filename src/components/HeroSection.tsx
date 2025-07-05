@@ -40,6 +40,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onResumeClick
       {/* Floating Elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-1/4 w-32 h-32 bg-primary/5 rounded-full blur-2xl animate-bounce-gentle" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-accent/5 rounded-full blur-2xl animate-scale-pulse" style={{ animationDelay: '3s' }} />
+      
+      {/* Animated Background Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-primary rounded-full animate-bounce-gentle opacity-60" style={{ animationDelay: '0.5s' }} />
+        <div className="absolute top-3/4 left-2/3 w-1 h-1 bg-accent rounded-full animate-bounce-gentle opacity-40" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-primary-glow rounded-full animate-bounce-gentle opacity-50" style={{ animationDelay: '2.5s' }} />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -60,6 +69,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onResumeClick
           <motion.h1
             variants={textVariants}
             className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-primary-glow bg-clip-text text-transparent bg-size-200 animate-text-shimmer"
+            whileHover={{ 
+              scale: 1.05,
+              transition: { duration: 0.3 }
+            }}
           >
             Sunal Kumar Saha
           </motion.h1>
@@ -86,24 +99,44 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onResumeClick
             variants={textVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button
-              onClick={onContactClick}
-              size="lg"
-              className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-8 py-3 text-base font-medium"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Mail className="mr-2" size={18} />
-              Get In Touch
-            </Button>
+              <Button
+                onClick={onContactClick}
+                size="lg"
+                className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-8 py-3 text-base font-medium"
+              >
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                >
+                  <Mail className="mr-2" size={18} />
+                </motion.div>
+                Get In Touch
+              </Button>
+            </motion.div>
             
-            <Button
-              onClick={onResumeClick}
-              variant="outline"
-              size="lg"
-              className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300 px-8 py-3 text-base font-medium"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <FileText className="mr-2" size={18} />
-              View Resume
-            </Button>
+              <Button
+                onClick={onResumeClick}
+                variant="outline"
+                size="lg"
+                className="border-primary/30 hover:border-primary hover:bg-primary/10 transition-all duration-300 px-8 py-3 text-base font-medium"
+              >
+                <motion.div
+                  animate={{ y: [0, -2, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 4 }}
+                >
+                  <FileText className="mr-2" size={18} />
+                </motion.div>
+                View Resume
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Scroll Indicator */}

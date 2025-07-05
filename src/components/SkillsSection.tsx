@@ -84,11 +84,23 @@ const SkillsSection: React.FC = () => {
           className="grid md:grid-cols-3 gap-8 mb-16"
         >
           {categories.map((category, index) => (
-            <motion.div key={index} variants={cardVariants}>
+            <motion.div 
+              key={index} 
+              variants={cardVariants}
+              whileHover={{ 
+                y: -10,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
+            >
               <Card className="p-6 h-full bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-300 group">
-                <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} mb-4 flex items-center justify-center`}>
+                <motion.div 
+                  className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} mb-4 flex items-center justify-center`}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.8 }}
+                >
                   <div className="w-6 h-6 bg-white rounded-sm opacity-80" />
-                </div>
+                </motion.div>
                 
                 <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   {category.title}
@@ -100,12 +112,18 @@ const SkillsSection: React.FC = () => {
                 
                 <div className="flex flex-wrap gap-2">
                   {category.techs.map((tech, techIndex) => (
-                    <span
+                    <motion.span
                       key={techIndex}
-                      className="px-3 py-1 text-sm bg-secondary/50 text-secondary-foreground rounded-full border border-border"
+                      className="px-3 py-1 text-sm bg-secondary/50 text-secondary-foreground rounded-full border border-border cursor-pointer"
+                      whileHover={{ 
+                        scale: 1.1,
+                        backgroundColor: "hsl(var(--primary) / 0.2)",
+                        borderColor: "hsl(var(--primary))"
+                      }}
+                      transition={{ duration: 0.2 }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </Card>
@@ -141,7 +159,7 @@ const SkillsSection: React.FC = () => {
                 </div>
                 
                 <div className="relative">
-                  <div className="w-full bg-secondary rounded-full h-2">
+                  <div className="w-full bg-secondary rounded-full h-2 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       whileInView={{ width: `${skill.level}%` }}
@@ -149,7 +167,16 @@ const SkillsSection: React.FC = () => {
                       viewport={{ once: true }}
                       className="bg-gradient-primary h-2 rounded-full relative overflow-hidden"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-text-shimmer" />
+                      <motion.div 
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent w-20"
+                        animate={{ x: [-80, 320] }}
+                        transition={{ 
+                          duration: 2, 
+                          repeat: Infinity, 
+                          delay: index * 0.1 + 1.5,
+                          ease: "easeInOut" 
+                        }}
+                      />
                     </motion.div>
                   </div>
                 </div>
