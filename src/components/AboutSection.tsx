@@ -59,24 +59,21 @@ const AboutSection: React.FC = () => {
             className="space-y-6"
           >
             <h3 className="text-2xl font-semibold text-foreground">
-              Hello! I'm John, a passionate developer based in San Francisco.
+              Hello! I'm Sunal, a passionate Front-End Developer with a strong eye for design.
             </h3>
             
             <p className="text-muted-foreground leading-relaxed">
-              I'm a full-stack developer with over 3 years of experience creating digital experiences 
-              that are not only functional but also beautiful and user-friendly. My journey in web 
-              development started with a curiosity about how things work behind the scenes.
+              I'm a passionate Front-End Developer with a strong eye for design and a love for crafting 
+              smooth, responsive user interfaces. Currently pursuing a B.Tech in Computer Science & 
+              Engineering, I specialize in building interactive web applications using React, Tailwind CSS, 
+              and Framer Motion.
             </p>
             
             <p className="text-muted-foreground leading-relaxed">
-              I specialize in React, Node.js, and modern web technologies. I love turning complex 
-              problems into simple, beautiful designs. When I'm not coding, you'll find me exploring 
-              new technologies, contributing to open source, or enjoying a good cup of coffee.
-            </p>
-
-            <p className="text-muted-foreground leading-relaxed">
-              I believe in writing clean, maintainable code and creating applications that provide 
-              real value to users. My goal is to make the web a better place, one project at a time.
+              I enjoy blending creativity with problem-solving to deliver clean, modern digital experiences. 
+              My interests extend into cybersecurity and AI-driven UI personalization, and I'm always eager 
+              to learn new technologies, collaborate on impactful projects, and push the boundaries of what's 
+              possible on the web.
             </p>
           </motion.div>
 

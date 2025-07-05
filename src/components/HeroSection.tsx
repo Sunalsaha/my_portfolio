@@ -61,7 +61,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onContactClick, onResumeClick
             variants={textVariants}
             className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-primary-glow bg-clip-text text-transparent bg-size-200 animate-text-shimmer"
           >
-            John Doe
+            Sunal Kumar Saha
           </motion.h1>
 
           {/* Title */}
