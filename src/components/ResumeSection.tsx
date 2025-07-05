@@ -8,70 +8,51 @@ import { FileText, Briefcase, Code, Star } from 'lucide-react';
 const ResumeSection: React.FC = () => {
   const experience = [
     {
-      title: 'Senior Full Stack Developer',
-      company: 'TechCorp Solutions',
-      period: '2022 - Present',
-      description: 'Lead development of scalable web applications using React, Node.js, and AWS. Mentored junior developers and implemented CI/CD pipelines.',
-      achievements: [
-        'Reduced application load time by 40%',
-        'Led a team of 5 developers',
-        'Implemented automated testing resulting in 99% uptime'
-      ]
+      title: '-',
+      company: '--',
+      period: '--',
+      description: 'will be updating soon!  😅',
+      achievements: ['-', '-', '-'],
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Digital Innovations Inc.',
-      period: '2021 - 2022',
-      description: 'Developed and maintained multiple client projects using modern web technologies. Collaborated with design teams to implement pixel-perfect UIs.',
-      achievements: [
-        'Delivered 15+ successful projects',
-        'Improved code quality by 35%',
-        'Reduced bug reports by 50%'
-      ]
+      title: '-',
+      company: '--',
+      period: '--',
+      description: 'will be updating soon!  😅',
+      achievements: ['-', '-', '-'],
     },
-    {
-      title: 'Frontend Developer',
-      company: 'StartupXYZ',
-      period: '2020 - 2021',
-      description: 'Built responsive web applications using React and TypeScript. Worked closely with UX designers to create intuitive user interfaces.',
-      achievements: [
-        'Increased user engagement by 60%',
-        'Implemented responsive design across all platforms',
-        'Optimized SEO resulting in 200% traffic increase'
-      ]
-    }
   ];
 
   const education = [
     {
       degree: 'Bachelor of Science in Computer Science',
-      school: 'University of California, Berkeley',
-      period: '2016 - 2020',
-      achievements: ['Magna Cum Laude', 'Dean\'s List (6 semesters)', 'CS Honor Society']
+      school: 'Sister Nivedita University, Kolkata',
+      period: '2023 - 2027',
+      achievements: [],
     },
     {
       degree: 'Full Stack Web Development Bootcamp',
       school: 'General Assembly',
       period: '2020',
-      achievements: ['Top 10% of cohort', 'Best Final Project Award']
-    }
+      achievements: ['Top 10% of cohort', 'Best Final Project Award'],
+    },
   ];
 
   const certifications = [
-    'AWS Certified Solutions Architect',
-    'Google Cloud Professional Developer',
-    'MongoDB Certified Developer',
-    'Scrum Master Certification'
+    'Google Cloud Introduction to Generative AI',
+    'IBM Generative AI: Introduction and Applications',
+    'IBM Introduction to Artificial Intelligence (AI)',
+    'University of Virginia Design Thinking Specialization',
+    'University of Colorado Boulder Foundations of Data Structures and Algorithms Specialization',
+    'DeepLearning.AI Knowledge Graphs for RAG',
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const cardVariants = {
@@ -79,10 +60,8 @@ const ResumeSection: React.FC = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6
-      }
-    }
+      transition: { duration: 0.6 },
+    },
   };
 
   return (
@@ -101,15 +80,21 @@ const ResumeSection: React.FC = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
             My professional journey, education, and achievements
           </p>
-          
-          <Button className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
-            <FileText size={16} className="mr-2" />
-            Download PDF Resume
-          </Button>
+          <a
+            href="/Resume.pdf"
+            download="Sunal_Saha_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-gradient-primary hover:shadow-glow transition-all duration-300">
+              <FileText size={16} className="mr-2" />
+              Download PDF Resume
+            </Button>
+          </a>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Experience Section */}
+          {/* Experience */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -143,16 +128,16 @@ const ResumeSection: React.FC = () => {
                         {job.period}
                       </Badge>
                     </div>
-                    
+
                     <p className="text-muted-foreground mb-4 leading-relaxed">
                       {job.description}
                     </p>
-                    
+
                     <div className="space-y-2">
                       <p className="text-sm font-medium text-foreground">Key Achievements:</p>
                       <ul className="space-y-1">
-                        {job.achievements.map((achievement, achievementIndex) => (
-                          <li key={achievementIndex} className="flex items-start text-sm text-muted-foreground">
+                        {job.achievements.map((achievement, i) => (
+                          <li key={i} className="flex items-start text-sm text-muted-foreground">
                             <Star size={12} className="text-primary mr-2 mt-1 flex-shrink-0" />
                             {achievement}
                           </li>
@@ -165,7 +150,7 @@ const ResumeSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Education Section */}
+          {/* Education */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -198,17 +183,19 @@ const ResumeSection: React.FC = () => {
                           {edu.period}
                         </Badge>
                       </div>
-                      
-                      <div className="space-y-2">
-                        <p className="text-sm font-medium text-foreground">Achievements:</p>
-                        <div className="flex flex-wrap gap-1">
-                          {edu.achievements.map((achievement, achievementIndex) => (
-                            <Badge key={achievementIndex} variant="secondary" className="text-xs">
-                              {achievement}
-                            </Badge>
-                          ))}
+
+                      {edu.achievements.length > 0 && (
+                        <div className="space-y-2">
+                          <p className="text-sm font-medium text-foreground">Achievements:</p>
+                          <div className="flex flex-wrap gap-1">
+                            {edu.achievements.map((a, i) => (
+                              <Badge key={i} variant="secondary" className="text-xs">
+                                {a}
+                              </Badge>
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </Card>
                 </motion.div>
@@ -216,7 +203,7 @@ const ResumeSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          {/* Certifications Section */}
+          {/* Certifications */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -232,12 +219,12 @@ const ResumeSection: React.FC = () => {
 
             <Card className="p-6 bg-glass/30 backdrop-blur-sm border-glass-border">
               <div className="grid md:grid-cols-2 gap-4">
-                {certifications.map((cert, index) => (
+                {certifications.map((cert, i) => (
                   <motion.div
-                    key={index}
+                    key={i}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
                     viewport={{ once: true }}
                     className="flex items-center space-x-3 p-3 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors"
                   >

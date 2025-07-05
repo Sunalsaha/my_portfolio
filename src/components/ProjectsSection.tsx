@@ -9,22 +9,22 @@ const ProjectsSection: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.',
-      image: '/api/placeholder/600/400',
-      tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
-      github: '#',
-      demo: '#',
+      title: 'TraceGreen',
+      description: 'TraceGreen is a blockchain-based platform that lets manufacturers register products and generate QR codes linked to verified sustainability data. Consumers can scan the QR to view trusted metrics like carbon footprint, recycled content, and supplier info—enhancing transparency in green claims.',
+      image: 'tracegreen.png',
+      tech: ['Next.js', 'MDX', 'Prisma', 'Vercel', 'Tailwind CSS'],
+      github: 'https://github.com/Sunalsaha/TraceGreen',
+      demo: 'tracegreen.mp4',
       featured: true
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: '/api/placeholder/600/400',
+      title: 'Glauco-scan',
+      description: 'GlaucoScan is an AI-powered web application designed to detect glaucoma from fundus (retinal) images. Built for quick screening, the tool uses a fine-tuned deep learning model to identify signs of optic nerve damage and provides confidence-based results along with visual explanations using Grad-CAM',
+      image: 'glauco.png',
       tech: ['Next.js', 'Socket.io', 'MongoDB', 'Redux', 'Framer Motion'],
-      github: '#',
-      demo: '#',
+      github: 'https://github.com/Sunalsaha/Glauco-scan',
+      demo: 'Glauco-scan.mp4',
       featured: true
     },
     {
@@ -59,14 +59,15 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: 6,
-      title: 'Blog Platform',
-      description: 'A modern blog platform with markdown support, SEO optimization, and content management system.',
+      title: 'Multi-Signature Wallet',
+      description: 'A secure multi-signature wallet for managing digital assets with enhanced security features.',
       image: '/api/placeholder/600/400',
-      tech: ['Next.js', 'MDX', 'Prisma', 'Vercel', 'Tailwind CSS'],
-      github: '#',
+      tech: ['solidity', 'Web3.js', 'Ethereum'],
+      github: 'https://github.com/Sunalsaha/Multi-Signature-Wallet',
       demo: '#',
       featured: false
-    }
+    },
+    
   ];
 
   const containerVariants = {
@@ -120,33 +121,26 @@ const ProjectsSection: React.FC = () => {
           className="grid lg:grid-cols-2 gap-8 mb-16"
         >
           {featuredProjects.map((project, index) => (
-            <motion.div 
-              key={project.id} 
+            <motion.div
+              key={project.id}
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
                 rotateY: 2,
                 transition: { duration: 0.3 }
               }}
             >
               <Card className="group overflow-hidden bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-500">
-                {/* Project Image */}
                 <div className="relative h-64 bg-gradient-secondary overflow-hidden">
-                  <motion.div 
+                  <motion.div
                     className="absolute inset-0 bg-gradient-mesh opacity-50"
-                    animate={{ 
-                      backgroundPosition: ["0% 0%", "100% 100%"],
-                    }}
-                    transition={{ 
-                      duration: 10, 
-                      repeat: Infinity, 
-                      repeatType: "reverse" 
-                    }}
+                    animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
+                    transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div 
+                    <motion.div
                       className="text-4xl font-bold text-primary/30"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.1,
                         rotate: 5,
                         color: "hsl(var(--primary))"
@@ -157,7 +151,7 @@ const ProjectsSection: React.FC = () => {
                     </motion.div>
                   </div>
                   {project.featured && (
-                    <motion.div 
+                    <motion.div
                       className="absolute top-4 right-4"
                       initial={{ scale: 0, rotate: -180 }}
                       animate={{ scale: 1, rotate: 0 }}
@@ -174,46 +168,35 @@ const ProjectsSection: React.FC = () => {
                       </Badge>
                     </motion.div>
                   )}
-                  <motion.div 
+                  <motion.div
                     className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4"
-                    initial={false}
-                    animate={{ 
-                      backdropFilter: "blur(8px)"
-                    }}
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Button size="sm" variant="secondary">
-                        <Code size={16} className="mr-2" />
-                        Code
-                      </Button>
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" variant="secondary">
+                          <Code size={16} className="mr-2" />
+                          Code
+                        </Button>
+                      </a>
                     </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Button size="sm">
-                        View Demo
-                      </Button>
+                    <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <Button size="sm">View Demo</Button>
+                      </a>
                     </motion.div>
                   </motion.div>
                 </div>
 
-                {/* Project Content */}
                 <div className="p-6 space-y-4">
-                  <motion.h3 
+                  <motion.h3
                     className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors"
                     whileHover={{ x: 5 }}
                   >
                     {project.title}
                   </motion.h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  
+
+                  <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <motion.div
@@ -222,8 +205,8 @@ const ProjectsSection: React.FC = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: techIndex * 0.1 + 0.5, duration: 0.3 }}
                       >
-                        <Badge 
-                          variant="secondary" 
+                        <Badge
+                          variant="secondary"
                           className="text-xs hover:bg-primary/20 hover:border-primary transition-colors cursor-pointer"
                         >
                           {tech}
@@ -258,10 +241,10 @@ const ProjectsSection: React.FC = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {otherProjects.map((project, index) => (
-            <motion.div 
-              key={project.id} 
+            <motion.div
+              key={project.id}
               variants={cardVariants}
-              whileHover={{ 
+              whileHover={{
                 y: -5,
                 rotateX: 5,
                 transition: { duration: 0.3 }
@@ -270,32 +253,29 @@ const ProjectsSection: React.FC = () => {
               <Card className="group p-6 h-full bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-300">
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
-                    <motion.h4 
+                    <motion.h4
                       className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors"
                       whileHover={{ x: 3 }}
                     >
                       {project.title}
                     </motion.h4>
-                    <motion.div 
+                    <motion.div
                       className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity"
                       initial={{ x: 10 }}
                       whileHover={{ x: 0 }}
                     >
-                      <motion.div
-                        whileHover={{ scale: 1.2, rotate: 15 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
-                          <Code size={14} />
-                        </Button>
+                      <motion.div whileHover={{ scale: 1.2, rotate: 15 }} whileTap={{ scale: 0.9 }}>
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Button size="sm" variant="ghost" className="h-8 w-8 p-0">
+                            <Code size={14} />
+                          </Button>
+                        </a>
                       </motion.div>
                     </motion.div>
                   </div>
-                  
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  
+
+                  <p className="text-muted-foreground text-sm leading-relaxed">{project.description}</p>
+
                   <div className="flex flex-wrap gap-1">
                     {project.tech.slice(0, 3).map((tech, techIndex) => (
                       <motion.div
@@ -304,8 +284,8 @@ const ProjectsSection: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: techIndex * 0.1 + index * 0.05 }}
                       >
-                        <Badge 
-                          variant="outline" 
+                        <Badge
+                          variant="outline"
                           className="text-xs hover:bg-primary/10 hover:border-primary/50 transition-colors cursor-pointer"
                         >
                           {tech}

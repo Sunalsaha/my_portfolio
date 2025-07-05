@@ -51,14 +51,14 @@ const ContactSection: React.FC = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'john.doe@example.com',
-      link: 'mailto:john.doe@example.com'
+      value: 'sunalsaha5803@gmail.com',
+      link:  'mailto:sunalsaha5803@gmail.com'
     },
     {
       icon: User,
       label: 'Location',
-      value: 'San Francisco, CA',
-      link: null
+      value: 'kolkata, India',
+      link: 'https://www.google.com/maps/place/Kolkata,+West+Bengal/@22.5726,88.3639,12z'
     },
     {
       icon: FileText,

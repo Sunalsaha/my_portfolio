@@ -7,6 +7,20 @@ import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import ResumeSection from '@/components/ResumeSection';
 
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail
+} from 'lucide-react';
+
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider
+} from '@/components/ui/tooltip';
+
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
 
@@ -27,7 +41,7 @@ const Index = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Set initial active section
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -49,7 +63,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation activeSection={activeSection} onSectionChange={setActiveSection} />
-      
+
       <main className="relative">
         <HeroSection onContactClick={handleContactClick} onResumeClick={handleResumeClick} />
         <AboutSection />
@@ -62,9 +76,73 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-border bg-glass/30 backdrop-blur-sm">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-muted-foreground">
-            © 2024 John Doe. Built with React, TypeScript, and Tailwind CSS.
-          </p>
+          <TooltipProvider>
+            <div className="flex justify-center space-x-6 mb-4">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="https://github.com/Sunalsaha"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                  >
+                    <Github size={22} />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>GitHub</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="https://www.linkedin.com/in/sunal-saha-9b258128b/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                  >
+                    <Linkedin size={22} />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>LinkedIn</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="https://twitter.com/sunalksaha"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                  >
+                    <Twitter size={22} />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Twitter</p>
+                </TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href="mailto:sunalsaha5803@gmail.com"
+                    className="text-muted-foreground hover:text-primary transition-all hover:scale-110"
+                  >
+                    <Mail size={22} />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Mail Me</p>
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </TooltipProvider>
+
+          <p className="text-muted-foreground">© 2024 Sunal Kumar Saha.</p>
         </div>
       </footer>
     </div>
