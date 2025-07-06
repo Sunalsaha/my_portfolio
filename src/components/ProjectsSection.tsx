@@ -10,22 +10,24 @@ const ProjectsSection: React.FC = () => {
     {
       id: 1,
       title: 'TraceGreen',
-      description: 'TraceGreen is a blockchain-based platform that lets manufacturers register products and generate QR codes linked to verified sustainability data. Consumers can scan the QR to view trusted metrics like carbon footprint, recycled content, and supplier info—enhancing transparency in green claims.',
+      description:
+        'TraceGreen is a blockchain-based platform that lets manufacturers register products and generate QR codes linked to verified sustainability data. Consumers can scan the QR to view trusted metrics like carbon footprint, recycled content, and supplier info—enhancing transparency in green claims.',
       image: 'tracegreen.png',
-      tech: ['Next.js', 'MDX', 'Prisma', 'Vercel', 'Tailwind CSS'],
+      tech: ['Next.js', 'Blockchain Module', 'Mongodb', 'AI Analysis', 'Tailwind CSS', '+4'],
       github: 'https://github.com/Sunalsaha/TraceGreen',
       demo: 'tracegreen.mp4',
-      featured: true
+      featured: true,
     },
     {
       id: 2,
       title: 'Glauco-scan',
-      description: 'GlaucoScan is an AI-powered web application designed to detect glaucoma from fundus (retinal) images. Built for quick screening, the tool uses a fine-tuned deep learning model to identify signs of optic nerve damage and provides confidence-based results along with visual explanations using Grad-CAM',
+      description:
+        'GlaucoScan is an AI-powered web application designed to detect glaucoma from fundus (retinal) images. Built for quick screening, the tool uses a fine-tuned deep learning model to identify signs of optic nerve damage and provides confidence-based results along with visual explanations using Grad-CAM',
       image: 'glauco.png',
-      tech: ['Next.js', 'Socket.io', 'MongoDB', 'Redux', 'Framer Motion'],
+      tech: ['Next.js', 'Socket.io', 'MongoDB', 'Redux', 'Framer Motion', '+3'],
       github: 'https://github.com/Sunalsaha/Glauco-scan',
       demo: 'Glauco-scan.mp4',
-      featured: true
+      featured: true,
     },
     {
       id: 3,
@@ -34,18 +36,18 @@ const ProjectsSection: React.FC = () => {
       image: '/api/placeholder/600/400',
       tech: ['Vue.js', 'TypeScript', 'Chart.js', 'OpenWeather API'],
       github: '#',
-      demo: '#',
-      featured: false
+      demo: 'https://demo.weatherapp.com',
+      featured: false,
     },
     {
       id: 4,
-      title: 'Social Media Analytics',
+      title: 'Social Flow',
       description: 'Analytics dashboard for social media metrics with data visualization, reporting, and performance tracking.',
       image: '/api/placeholder/600/400',
       tech: ['React', 'D3.js', 'Python', 'FastAPI', 'PostgreSQL'],
-      github: '#',
-      demo: '#',
-      featured: false
+      github: 'https://github.com/Sunalsaha/SocialFlow',
+      demo: 'SocialFlow.mp4',
+      featured: false,
     },
     {
       id: 5,
@@ -54,8 +56,8 @@ const ProjectsSection: React.FC = () => {
       image: '/api/placeholder/600/400',
       tech: ['React Native', 'Firebase', 'Redux', 'Charts'],
       github: '#',
-      demo: '#',
-      featured: false
+      demo: 'https://demo.fittrack.com',
+      featured: false,
     },
     {
       id: 6,
@@ -64,10 +66,9 @@ const ProjectsSection: React.FC = () => {
       image: '/api/placeholder/600/400',
       tech: ['solidity', 'Web3.js', 'Ethereum'],
       github: 'https://github.com/Sunalsaha/Multi-Signature-Wallet',
-      demo: '#',
-      featured: false
+      demo: 'https://demo.wallet.com',
+      featured: false,
     },
-    
   ];
 
   const containerVariants = {
@@ -75,9 +76,9 @@ const ProjectsSection: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const cardVariants = {
@@ -86,13 +87,13 @@ const ProjectsSection: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
-  const featuredProjects = projects.filter(p => p.featured);
-  const otherProjects = projects.filter(p => !p.featured);
+  const featuredProjects = projects.filter((p) => p.featured);
+  const otherProjects = projects.filter((p) => !p.featured);
 
   return (
     <section id="projects" className="py-20 relative">
@@ -127,15 +128,15 @@ const ProjectsSection: React.FC = () => {
               whileHover={{
                 scale: 1.02,
                 rotateY: 2,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
             >
               <Card className="group overflow-hidden bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-500">
                 <div className="relative h-64 bg-gradient-secondary overflow-hidden">
                   <motion.div
                     className="absolute inset-0 bg-gradient-mesh opacity-50"
-                    animate={{ backgroundPosition: ["0% 0%", "100% 100%"] }}
-                    transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+                    animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
+                    transition={{ duration: 10, repeat: Infinity, repeatType: 'reverse' }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div
@@ -143,11 +144,11 @@ const ProjectsSection: React.FC = () => {
                       whileHover={{
                         scale: 1.1,
                         rotate: 5,
-                        color: "hsl(var(--primary))"
+                        color: 'hsl(var(--primary))',
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      {project.title.split(' ').map(word => word[0]).join('')}
+                      {project.title.split(' ').map((word) => word[0]).join('')}
                     </motion.div>
                   </div>
                   {project.featured && (
@@ -168,9 +169,7 @@ const ProjectsSection: React.FC = () => {
                       </Badge>
                     </motion.div>
                   )}
-                  <motion.div
-                    className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4"
-                  >
+                  <motion.div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
                     <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Button size="sm" variant="secondary">
@@ -194,9 +193,7 @@ const ProjectsSection: React.FC = () => {
                   >
                     {project.title}
                   </motion.h3>
-
                   <p className="text-muted-foreground leading-relaxed">{project.description}</p>
-
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, techIndex) => (
                       <motion.div
@@ -228,9 +225,7 @@ const ProjectsSection: React.FC = () => {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <h3 className="text-2xl font-semibold text-center mb-8 text-foreground">
-            Other Notable Projects
-          </h3>
+          <h3 className="text-2xl font-semibold text-center mb-8 text-foreground">Other Notable Projects</h3>
         </motion.div>
 
         <motion.div
@@ -247,18 +242,30 @@ const ProjectsSection: React.FC = () => {
               whileHover={{
                 y: -5,
                 rotateX: 5,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
             >
               <Card className="group p-6 h-full bg-glass/30 backdrop-blur-sm border-glass-border hover:shadow-glow transition-all duration-300">
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
-                    <motion.h4
-                      className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors"
-                      whileHover={{ x: 3 }}
-                    >
-                      {project.title}
-                    </motion.h4>
+                    {[3, 4, 5, 6].includes(project.id) && project.demo && project.demo !== '#' ? (
+                      <motion.a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ x: 3 }}
+                        className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors hover:underline"
+                      >
+                        {project.title}
+                      </motion.a>
+                    ) : (
+                      <motion.h4
+                        className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors"
+                        whileHover={{ x: 3 }}
+                      >
+                        {project.title}
+                      </motion.h4>
+                    )}
                     <motion.div
                       className="flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity"
                       initial={{ x: 10 }}

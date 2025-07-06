@@ -33,7 +33,7 @@ const ResumeSection: React.FC = () => {
     {
       degree: 'Full Stack Web Development Bootcamp',
       school: 'General Assembly',
-      period: '2020',
+      period: '2024',
       achievements: ['Top 10% of cohort', 'Best Final Project Award'],
     },
   ];
