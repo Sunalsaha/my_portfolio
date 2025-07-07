@@ -31,12 +31,12 @@ const ProjectsSection: React.FC = () => {
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
-      description: 'A responsive weather dashboard that displays current weather, forecasts, and interactive maps using third-party APIs.',
+      title: 'TimeTexter',
+      description: 'Streamline your social media presence with our powerful dashboard. Manage multiple platforms, schedule content, and grow your audience - all in one place.',
       image: '/api/placeholder/600/400',
-      tech: ['Vue.js', 'TypeScript', 'Chart.js', 'OpenWeather API'],
-      github: '#',
-      demo: 'https://demo.weatherapp.com',
+      tech: ['Vue.js', 'TypeScript', 'APIs','.css', 'Tailwind CSS  ', '+2'],
+      github: 'https://github.com/Sunalsaha/TimeTexter',
+      demo: '#',
       featured: false,
     },
     {
