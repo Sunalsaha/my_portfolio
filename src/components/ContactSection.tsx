@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, User, FileText, Send } from 'lucide-react';
+import { Mail, User, FileText, Send, Phone } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ContactSection: React.FC = () => {
@@ -61,11 +61,12 @@ const ContactSection: React.FC = () => {
       link: 'https://www.google.com/maps/place/Kolkata,+West+Bengal/@22.5726,88.3639,12z'
     },
     {
-      icon: FileText,
-      label: 'Response Time',
-      value: 'Within 24 hours',
-      link: null
-    }
+      icon: Phone,
+      label: 'Contact Number',
+      value: '+91 9733019162',
+      link: 'tel:+919733019162'
+    },
+    
   ];
 
   return (

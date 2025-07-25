@@ -5,33 +5,36 @@ import { Progress } from '@/components/ui/progress';
 
 const SkillsSection: React.FC = () => {
   const skills = [
-    { name: 'React / Next.js', level: 95, category: 'Frontend' },
-    { name: 'TypeScript', level: 90, category: 'Language' },
-    { name: 'Node.js / Express', level: 85, category: 'Backend' },
-    { name: 'Python / Django', level: 80, category: 'Backend' },
-    { name: 'PostgreSQL / MongoDB', level: 85, category: 'Database' },
-    { name: 'AWS / Docker', level: 75, category: 'DevOps' },
-    { name: 'Tailwind CSS', level: 95, category: 'Styling' },
-    { name: 'GraphQL', level: 70, category: 'API' },
+    { name: 'Postman, Git / GitHub, Gemini API, VSCode', level: 95, category: 'Tools & Platforms' },
+    { name: 'Data Structures,Competitive Programming, Time Complexity Optimization', level: 80, category: 'Algorithms & Problem Solving' },
+    { name: 'Vercel, Netlify, Render', level: 85, category: 'Cloud & DevOps' },
+    { name: 'Bengali, English, Hindi , German', level: 75, category: 'Languages Known' },
+    
   ];
 
   const categories = [
     {
+      title: 'UI/UX Design',
+      description: 'Creating beautiful, responsive user interfaces with seamless user experiences.',
+      techs: ['Figma', 'Canva', 'Adobe XD', 'Pen & Paper Wireframing'],
+      color: 'from-yellow-500 to-yan-500'
+    },
+    {
       title: 'Frontend Development',
       description: 'Creating beautiful, responsive user interfaces',
-      techs: ['React', 'Vue.js', 'Angular', 'TypeScript', 'Tailwind CSS', 'SASS'],
+      techs: ['HTML5 & CSS3', 'JavaScript(ES6+)', 'TypeScript', 'React.js', 'React.js'],
       color: 'from-blue-500 to-cyan-500'
     },
     {
       title: 'Backend Development',
       description: 'Building robust server-side applications',
-      techs: ['Node.js', 'Python', 'Express.js', 'Django', 'REST APIs', 'GraphQL'],
+      techs: ['Node.js', 'Express.js', 'Clerk Auth', 'Convex'],
       color: 'from-green-500 to-emerald-500'
     },
     {
       title: 'Database & DevOps',
       description: 'Managing data and deployment pipelines',
-      techs: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS', 'Docker', 'CI/CD'],
+      techs: ['MongoDB', 'SQL', 'AWS', 'Docker'],
       color: 'from-purple-500 to-violet-500'
     }
   ];
@@ -140,7 +143,7 @@ const SkillsSection: React.FC = () => {
           className="max-w-4xl mx-auto"
         >
           <h3 className="text-2xl font-semibold text-center mb-8 text-foreground">
-            Technical Proficiency
+            Other Skillset
           </h3>
           
           <div className="grid md:grid-cols-2 gap-6">
